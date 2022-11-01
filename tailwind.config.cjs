@@ -9,6 +9,7 @@ module.exports = {
       accent: "#F234CB",
       black: "#0D0D0E",
       white: "#FFFFFF",
+      inherit: "inherit",
     },
   },
   plugins: [],
