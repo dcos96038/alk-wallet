@@ -1,14 +1,11 @@
-import { Navbar } from "./Components/Navbar";
-import { Footer } from "./Components/Footer";
-import { BrowserRouter, Routes } from "react-router-dom";
+import {Navbar} from "./Components/Navbar";
+import {Footer} from "./Components/Footer";
 
-export function Layout() {
+export function Layout({children}) {
   return (
     <>
       <Navbar />
-      <BrowserRouter>
-        <Routes></Routes>
-      </BrowserRouter>
+      {children}
       <Footer />
     </>
   );
