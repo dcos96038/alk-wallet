@@ -1,9 +1,7 @@
-import React from 'react'
-
 const BalanceView = () => {
   return (
-    <div>BalanceView</div>
-  )
-}
+    <div className="flex flex-column flex-grow">BalanceView</div>
+  );
+};
 
-export default BalanceView
+export default BalanceView;

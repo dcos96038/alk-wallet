@@ -19,7 +19,8 @@ export const MainRoutes = () => {
         <Route element={<ExpensesView />} path="/expenses" />
         <Route element={<MovementsView />} path="/movements" />
         <Route element={<SendView />} path="/send" />
-        <Route element={<NotFoundView/>} path="/*" />
+        <Route element={<NotFoundView />} path="/*" />
+        <Route element={<Navigate to="/home" />} path="/" />
       </Routes>
     </Layout>
   );
