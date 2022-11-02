@@ -46,10 +46,12 @@ const BalanceCard = ({type, currency, amount}) => {
   }
 
   return (
-    <div className="flex flex-col items-start max-w-screen-lg">
+    <div className="flex flex-col items-start max-w-screen-lg mt-6 md:mt-0">
       <h2 className="text-primary capitalize text-3xl">{type === "balance" ? "saldo" : type}:</h2>
       <div className="border-2 mt-3 px-14 py-7  border-secondary max-w-sm rounded overflow-hidden">
-        <h3 className={getColor(type) + " uppercase font-bold"}>{`${currency} ${amount}`}</h3>
+        <h3
+          className={getColor(type) + " uppercase font-bold text-2xl lg:text-4xl"}
+        >{`${currency} ${amount}`}</h3>
       </div>
       {renderLinks(type)}
     </div>
