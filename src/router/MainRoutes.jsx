@@ -1,17 +1,19 @@
-import {Navigate, Route, Routes} from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
-import {Layout} from "../Layout";
+import { Layout } from "../Layout";
 import BalanceView from "../views/BalanceView";
 import ChargeView from "../views/ChargeView";
 import ExpensesView from "../views/ExpensesView";
-import {HomeView} from "../views/HomeView";
+import { HomeView } from "../views/HomeView";
 import MovementsView from "../views/MovementsView";
 import NotFoundView from "../views/NotFoundView";
 import SendView from "../views/SendView";
+import { Navbar } from "../Components/Navbar";
 
 export const MainRoutes = () => {
   return (
     <Layout>
+      <Navbar />
       <Routes>
         <Route element={<HomeView />} path="/home" />
         <Route element={<BalanceView />} path="/balance" />
@@ -19,7 +21,7 @@ export const MainRoutes = () => {
         <Route element={<ExpensesView />} path="/expenses" />
         <Route element={<MovementsView />} path="/movements" />
         <Route element={<SendView />} path="/send" />
-        <Route element={<NotFoundView/>} path="/*" />
+        <Route element={<NotFoundView />} path="/*" />
       </Routes>
     </Layout>
   );
