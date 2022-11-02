@@ -10,6 +10,8 @@ module.exports = {
       black: "#0D0D0E",
       white: "#FFFFFF",
       inherit: "inherit",
+      green: "#00CC00",
+      red: "#CC0000",
     },
   },
   plugins: [],
