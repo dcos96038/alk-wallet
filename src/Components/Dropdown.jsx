@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Props:
 // values: lista de valores que aparecen en el menu
@@ -17,10 +17,14 @@ const Dropdown = ({
     returnValue(values[index]);
   };
 
+  useEffect(() => {
+    returnValue(values[0]);
+  }, []);
+
   return (
     <div className={className} style={{ height: "40px" }}>
       <button
-        className="float-none border-0 text-white bg-zinc-800 hover:bg-blue-800 focus:bg-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+        className="float-none border-0 text-white bg-zinc-800 focus:bg-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
         type="button"
         onClick={() => setToggle(!toggle)}
       >
