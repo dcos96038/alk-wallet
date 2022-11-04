@@ -3,21 +3,28 @@ import {createAsyncThunk, createSelector, createSlice} from "@reduxjs/toolkit";
 import {walletApi} from "../api";
 
 export const logIn = createAsyncThunk("user/logIn", async ({email, password}) => {
-  const {data} = await walletApi.post("/auth/login", {email, password});
+  let accessToken;
 
-  if (data.error) throw new Error(data.error);
-  const {accessToken} = data;
+  try {
+    ({
+      data: {accessToken},
+    } = await walletApi.post("/auth/login", {email, password}));
+  } catch (e) {
+    throw new Error(e.response?.data?.error || e.message);
+  }
+
   const {
-    data: {first_name, last_name},
+    data: {id, first_name, last_name},
   } = await walletApi.get("/auth/me", {headers: {Authorization: `Bearer ${accessToken}`}});
 
   const userData = {
+    id,
     name: first_name + " " + last_name,
     email,
-    accessToken: data.accessToken,
+    accessToken,
   };
 
-  localStorage.setItem("user", userData);
+  localStorage.setItem("user", JSON.stringify(userData));
 
   return userData;
 });
