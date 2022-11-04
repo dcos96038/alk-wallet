@@ -47,7 +47,7 @@ export const LoginView = () => {
       <p>
         No account? <Link to="/auth/register">Register</Link>
       </p>
-      <button>Log in</button>
+      <button className="float-right">Log in</button>
     </form>
   );
 };
