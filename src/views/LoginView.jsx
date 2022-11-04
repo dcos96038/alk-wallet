@@ -24,39 +24,36 @@ export const LoginView = () => {
   }
 
   return (
-    <>
-      <Navbar />
-      <form className="p-4 max-w-xl mx-auto mt-5" onSubmit={submit}>
-        <h1 className="text-primary">Welcome back!</h1>
-        {error && (
-          <div>
-            <b className="text-secondary">Error: </b>
-            {error}
-          </div>
-        )}
-        <label>
-          Email
-          <input
-            required
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            required
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <p>
-          No account? <Link to="/auth/register">Register</Link>
-        </p>
-        <button>Log in</button>
-      </form>
-    </>
+    <form className="p-4 max-w-xl mx-auto mt-5" onSubmit={submit}>
+      <h1 className="text-primary">Welcome back!</h1>
+      {error && (
+        <div>
+          <b className="text-secondary">Error: </b>
+          {error}
+        </div>
+      )}
+      <label>
+        Email
+        <input
+          required
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      <label>
+        Password
+        <input
+          required
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
+      <p>
+        No account? <Link to="/auth/register">Register</Link>
+      </p>
+      <button>Log in</button>
+    </form>
   );
 };
