@@ -10,7 +10,7 @@ export function Navbar() {
           <p>Home</p>
         </Link>
         <Link to="/" className="p-2 cursor-pointer">
-          <p>Profile</p>
+          <p>Profile's name</p>
         </Link>
         <Link
           to="/"
