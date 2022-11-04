@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
@@ -13,14 +13,17 @@ export const LoginView = () => {
 
   useEffect(() => setError(), [email, password]);
 
-  async function submit(ev) {
-    ev.preventDefault();
-    setError();
-    const resp = await dispatch(logIn({email, password}));
+  const submit = useCallback(
+    async (ev) => {
+      ev.preventDefault();
+      setError();
+      const resp = await dispatch(logIn({email, password}));
 
-    if (resp.error) setError(resp.error.message);
-    else navigate("/");
-  }
+      if (resp.error) setError(resp.error.message);
+      else navigate("/home");
+    },
+    [email, password, navigate, dispatch],
+  );
 
   return (
     <form className="p-4 max-w-xl mx-auto mt-5" onSubmit={submit}>
