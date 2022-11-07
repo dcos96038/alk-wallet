@@ -7,7 +7,8 @@ import {AuthRoutes} from "./AuthRoutes";
 import {MainRoutes} from "./MainRoutes";
 
 export const AppRouter = () => {
-  const loggedIn = useSelector(selectIsLoggedIn);
+  const loggedIn = true;
+  //useSelector(selectIsLoggedIn);
 
   return (
     <Routes>

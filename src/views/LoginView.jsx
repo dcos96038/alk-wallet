@@ -2,7 +2,8 @@ import {useCallback, useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-import {logIn} from "../redux/userSlice";
+
+import { logIn } from "../redux/userSlice";
 
 export const LoginView = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,11 @@ export const LoginView = () => {
       ev.preventDefault();
       setError();
       const resp = await dispatch(logIn({email, password}));
+      
+  // async function submit(ev) {
+    // ev.preventDefault();
+    // setError();
+    // const resp = await dispatch(logIn({ email, password }));
 
       if (resp.error) setError(resp.error.message);
       else navigate("/home");
@@ -36,7 +42,12 @@ export const LoginView = () => {
       )}
       <label>
         Email
-        <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input
+          required
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </label>
       <label>
         Password
