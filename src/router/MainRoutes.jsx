@@ -22,6 +22,7 @@ export const MainRoutes = () => {
         <Route element={<MovementsView />} path="/movements" />
         <Route element={<SendView />} path="/send" />
         <Route element={<NotFoundView />} path="/*" />
+        <Route element={<Navigate to="/home" />} path="/" />
       </Routes>
     </Layout>
   );

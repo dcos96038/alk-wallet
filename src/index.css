@@ -18,6 +18,7 @@
   input:not([type]),
   input[type="text"],
   input[type="email"],
+  input[type="number"],
   input[type="password"] {
     @apply block w-full rounded-md p-1 border border-accent text-inherit bg-inherit focus:outline-none;
   }
@@ -30,3 +31,18 @@
     @apply underline text-accent;
   }
 }
+
+.input-area {
+  background-color: rgb(39, 39, 42) !important;
+  border: 1px solid rgb(39, 39, 42) !important;
+}
+.expenses{
+  background-color: #4B5563 !important;
+  border: none !important;
+  padding: 0.625rem !important;
+}
+
+.input-area:focus {
+  border: 1px solid #f234cb !important;
+}
+
