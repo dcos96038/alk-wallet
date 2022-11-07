@@ -1,0 +1,44 @@
+.loader-component {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loader-component div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 8px;
+    @apply border-t-black dark:border-t-white;
+    border: 7px solid;
+    border-radius: 50%;
+    animation: loader-component-anim 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.loader-component div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.loader-component div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.loader-component div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes loader-component-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
