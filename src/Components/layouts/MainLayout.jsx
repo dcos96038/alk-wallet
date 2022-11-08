@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import {Navbar} from "./Components/Navbar";
-import {Footer} from "./Components/Footer";
+import {Navbar} from "../Navbar";
+import {Footer} from "../Footer";
 
 
-export function Layout({ children }) {
+export function MainLayout({ children }) {
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
