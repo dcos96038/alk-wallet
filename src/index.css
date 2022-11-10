@@ -24,7 +24,7 @@
   }
 
   button {
-    // @apply border-2 rounded-lg border-accent px-5 py-1 text-lg hover:bg-primary;
+    @apply border-2 rounded-lg border-accent px-5 py-1 text-lg hover:bg-primary;
     @apply float-right border-2 rounded-lg border-accent px-5 py-1 text-lg hover:bg-primary;
   }
 
@@ -37,8 +37,8 @@
   background-color: rgb(39, 39, 42) !important;
   border: 1px solid rgb(39, 39, 42) !important;
 }
-.expenses{
-  background-color: #4B5563 !important;
+.expenses {
+  background-color: #4b5563 !important;
   border: none !important;
   padding: 0.625rem !important;
 }
