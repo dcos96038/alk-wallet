@@ -19,22 +19,32 @@ const SendView = () => {
   };
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    const res = await dispatch(sendMoney(form));
-    console.log(res);
-    if (res.payload.message === "OK") {
-      toast.success("That was a success", {
-        position: "bottom-right",
-        draggable: false,
-        theme: "dark",
-      });
+    if (form.amount && form.recipientID && form.concept) {
+      if (isnum(form.amount)) {
+        const res = await dispatch(sendMoney(form));
+        console.log(res);
+        if (res.payload.message === "OK") {
+          toast.success("That was a success", {
+            position: "bottom-right",
+            draggable: false,
+            theme: "dark",
+          });
+        } else {
+          toast.error("Ups, an error has occurred", {
+            position: "bottom-right",
+            draggable: false,
+            theme: "dark",
+          });
+        }
+      } else {
+        toast.info("Amount must be a number", { theme: "dark" });
+      }
     } else {
-      toast.error("Ups, an error has occurred", {
-        position: "bottom-right",
-        draggable: false,
-        theme: "dark",
-      });
+      toast.info("You have to complete all the fields", { theme: "dark" });
     }
   };
+
+  let isnum = (val) => /^\d+$/.test(val);
 
   return (
     <div className="flex flex-col flex-grow box-border">
