@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import Button from "../Components/Button";
 import Dropdown from "../Components/Dropdown";
 import { sendMoney } from "../redux/accountSlice";
@@ -11,7 +12,6 @@ const SendView = () => {
     concept: "",
     amount: "",
   });
-
   const handleChange = (ev) => {
     ev.preventDefault();
     const data = form;
@@ -19,9 +19,21 @@ const SendView = () => {
   };
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    console.log(form);
     const res = await dispatch(sendMoney(form));
     console.log(res);
+    if (res.payload.message === "OK") {
+      toast.success("That was a success", {
+        position: "bottom-right",
+        draggable: false,
+        theme: "dark",
+      });
+    } else {
+      toast.error("Ups, an error has occurred", {
+        position: "bottom-right",
+        draggable: false,
+        theme: "dark",
+      });
+    }
   };
 
   return (
@@ -34,7 +46,8 @@ const SendView = () => {
               htmlFor="recipient"
               className="text-base font-medium text-zinc-200"
             >
-              Send money to
+              Send money to{" "}
+              <span className="font-normal text-gray-300">(id)</span>
               <input
                 type="text"
                 name="recipientID"

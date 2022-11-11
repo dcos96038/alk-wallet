@@ -4,7 +4,7 @@ import { walletApi } from "../api";
 const initialState = {
   // id,
   // creationDate,
-  money: "0",
+  money: 0,
   // isBlocked,
   // userId,
   // createdAt,
@@ -36,8 +36,7 @@ const accountSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(sendMoney.fulfilled, (state, action) => {
-      console.log("success");
-      console.log(action);
+      state.money = state.money - parseInt(action.meta.arg.amount);
     });
   },
 });
