@@ -2,7 +2,6 @@ import {useCallback, useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-
 import { logIn } from "../redux/userSlice";
 
 export const LoginView = () => {

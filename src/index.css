@@ -31,6 +31,9 @@
   a {
     @apply underline text-accent;
   }
+  body {
+    @apply overflow-x-hidden;
+  }
 }
 
 .input-area {
