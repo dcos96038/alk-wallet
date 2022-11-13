@@ -60,7 +60,7 @@ const Dropdown = ({
           {values[0] &&
             values.map((item, index) => {
               return (
-                <li>
+                <li key={index}>
                   <a
                     onClick={() => handleSelect(index)}
                     className="text-gray-50 block py-2 px-4 no-underline cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600"

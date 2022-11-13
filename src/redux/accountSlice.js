@@ -6,7 +6,7 @@ const initialState = {
   // creationDate,
   money: 0,
   // isBlocked,
-  // userId,
+  // userId: 1,
   // createdAt,
   // updatedAt,
 };
@@ -30,6 +30,26 @@ export const sendMoney = createAsyncThunk(
   }
 );
 
+export const chargeMoney = createAsyncThunk(
+  "account/chargeMoney",
+  async({ concept, amount }, thunkAPI) =>{
+    const state = thunkAPI.getState();
+    const token = state.user.accessToken;
+    const amountInt = parseInt(amount);
+    const id = 1529;
+
+    const res = await walletApi.post(
+      `/accounts/${id}`,
+      { type: "topup", concept, amount: amountInt },
+      {
+        headers: {Authorization: `Bearer ${token}`}
+      }
+    );
+
+    return res.data
+  }
+)
+
 const accountSlice = createSlice({
   name: "account",
   initialState,
@@ -37,6 +57,9 @@ const accountSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(sendMoney.fulfilled, (state, action) => {
       state.money = state.money - parseInt(action.meta.arg.amount);
+    });
+    builder.addCase(chargeMoney.fulfilled, (state,action) => {
+      state.money += parseInt(action.meta.arg.amount)
     });
   },
 });

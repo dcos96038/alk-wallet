@@ -11,7 +11,7 @@ const Tooltips = () => {
 
     if(severity === 'success'){
         style = {
-            backgroundColor: '#AF06FF'
+            backgroundColor: '#00D26A'
         }
     }else if(severity === 'error'){
         style = {
