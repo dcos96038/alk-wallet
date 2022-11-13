@@ -13,7 +13,7 @@ import { Navbar } from "../Components/Navbar";
 export const MainRoutes = () => {
   return (
     <Layout>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route element={<HomeView />} path="/home" />
         <Route element={<BalanceView />} path="/balance" />
