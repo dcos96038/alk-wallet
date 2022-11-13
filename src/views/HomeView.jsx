@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAccount } from "../redux/accountSlice";
 
 export const HomeView = () => {
-  return <div>HomeView</div>;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAccount());
+  }, []);
+
+  const money = useSelector((state) => state.account.money);
+
+  return <div>Money: {money}</div>;
 };
