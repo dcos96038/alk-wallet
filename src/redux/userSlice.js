@@ -37,7 +37,13 @@ const userSlice = createSlice({
     if (stateStr) return {...JSON.parse(stateStr), loggedIn: true};
     else return {loggedIn: false};
   },
-  reducers: {},
+  reducers: {
+    logOut() {
+      localStorage.removeItem("user");
+
+      return {loggedIn: false};
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(logIn.fulfilled, (_, action) => {
       return {...action.payload, loggedIn: true};
@@ -48,3 +54,4 @@ const userSlice = createSlice({
 export const selectUser = (state) => state.user;
 export const selectIsLoggedIn = createSelector(selectUser, (user) => user.loggedIn);
 export const userReducer = userSlice.reducer;
+export const {logOut} = userSlice.actions;
