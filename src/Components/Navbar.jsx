@@ -69,6 +69,7 @@ export function Navbar() {
           <p>Sign out</p>
         </Link> */}
       </div>
+
     </div>
   );
 }

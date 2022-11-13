@@ -1,9 +1,15 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import { userReducer } from "./userSlice";
+import { accountReducer } from "./accountSlice";
+import TooltipsSlice from "./TooltipsSlice";
 
-import {userReducer} from "./userSlice";
+
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
+    account: accountReducer,
+    tooltips: TooltipsSlice,
+
   },
 });

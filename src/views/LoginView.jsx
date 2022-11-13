@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "../Components/Navbar";
+import {useCallback, useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
 
 import { logIn } from "../redux/userSlice";
 
@@ -14,14 +13,22 @@ export const LoginView = () => {
 
   useEffect(() => setError(), [email, password]);
 
-  async function submit(ev) {
-    ev.preventDefault();
-    setError();
-    const resp = await dispatch(logIn({ email, password }));
+  const submit = useCallback(
+    async (ev) => {
+      ev.preventDefault();
+      setError();
+      const resp = await dispatch(logIn({email, password}));
+      
+  // async function submit(ev) {
+    // ev.preventDefault();
+    // setError();
+    // const resp = await dispatch(logIn({ email, password }));
 
-    if (resp.error) setError(resp.error.message);
-    else navigate("/");
-  }
+      if (resp.error) setError(resp.error.message);
+      else navigate("/home");
+    },
+    [email, password, navigate, dispatch],
+  );
 
   return (
     <form className="p-4 max-w-xl mx-auto mt-5" onSubmit={submit}>
@@ -53,7 +60,7 @@ export const LoginView = () => {
       <p>
         No account? <Link to="/auth/register">Register</Link>
       </p>
-      <button>Log in</button>
+      <button className="float-right">Log in</button>
     </form>
   );
 };
