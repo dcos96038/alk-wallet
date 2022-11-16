@@ -1,4 +1,5 @@
 #  Alkybank
+![Verde_Hojas_Medioambiental_Logo-removebg-preview](https://user-images.githubusercontent.com/79724345/202087165-2d895790-c319-462a-b92f-2e2a38814e2a.png)
 
 Objetivo:
 </br>
